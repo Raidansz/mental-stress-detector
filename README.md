@@ -1,2 +1,2 @@
 # mental-stress-detector
-# Do not run train.py unless you changed the dataset and want to update the trained model too.
+# Do not run train.py unless you change the dataset and want to update the trained model.
