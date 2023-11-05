@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import joblib
 
 # Loading the dataset
-data = pd.read_csv('ECG_dataset.csv')
+data = pd.read_csv('synthetics-ecg.csv')
 
 # Listing of column names containing numeric values with commas
-numeric_columns = ['Mean HR (bpm)', 'AVNN (ms)', 'SDNN (ms)', 'NN50 (beats)', 'pNN50 (%)', 'RMSSD (ms)', 'LF (ms2)', 'LF Norm (n.u.)', 'HF (ms2)', 'HF Norm (n.u.)', 'LF/HF Ratio']
+numeric_columns = ['Mean HR (BPM)', 'AVNN (ms)', 'SDNN (ms)', 'NN50 (beats)', 'pNN50 (%)', 'RMSSD (ms)', 'LF (ms2)', 'LF Norm (n.u.)', 'HF (ms2)', 'HF Norm (n.u.)', 'LF/HF Ratio']
 
 # Iterating through numeric columns and replace commas with periods and convert to float if not already numeric
 for col in numeric_columns:
@@ -17,8 +17,8 @@ for col in numeric_columns:
         data[col] = data[col].str.replace(',', '.').astype(float)
 
 # Defining input features and the target variable
-X = data[['Mean HR (bpm)', 'AVNN (ms)', 'SDNN (ms)', 'NN50 (beats)', 'pNN50 (%)', 'RMSSD (ms)', 'LF (ms2)', 'LF Norm (n.u.)', 'HF (ms2)', 'HF Norm (n.u.)']]
-y = data['LF/HF Ratio']
+X = data[['Gender','Mean HR (BPM)', 'AVNN (ms)', 'SDNN (ms)', 'NN50 (beats)', 'pNN50 (%)', 'RMSSD (ms)', 'LF (ms2)', 'LF Norm (n.u.)', 'HF (ms2)', 'HF Norm (n.u.)','LF/HF Ratio']]
+y = data['stress level']
 
 # Spliting the dataset into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -36,9 +36,9 @@ print(f"Mean Squared Error: {mse}")
 
 # Ploting the actual vs. predicted values
 plt.scatter(y_test, y_pred)
-plt.xlabel("Actual LF/HF Ratio")
-plt.ylabel("Predicted LF/HF Ratio")
-plt.title("Actual vs. Predicted LF/HF Ratio")
+plt.xlabel("Actual stress level Ratio")
+plt.ylabel("Predicted stress level Ratio")
+plt.title("Actual vs. Predicted stress level Ratio")
 plt.show()
 
 
