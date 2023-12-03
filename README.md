@@ -33,7 +33,7 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/ecg-stress-prediction.git
+   git clone https://github.com/Raidansz/mental-stress-detector.git
    ```
 
 2. Navigate to the project directory:
@@ -91,5 +91,5 @@ print(generated_data)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
 
